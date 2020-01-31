@@ -42,8 +42,7 @@ class BarRepository(val context: Context) {
         insert(
             ConstantDB.DB_TABLE_BARES,
             "nome" to bar.nome,
-            "horarios" to bar.horarios,
-            "imagem" to bar.imagem
+            "horarios" to bar.horarios
         )
     }
 
@@ -51,8 +50,7 @@ class BarRepository(val context: Context) {
         val updateResult = update(
             ConstantDB.DB_TABLE_BARES,
             "nome" to bar.nome,
-            "horarios" to bar.horarios,
-            "imagem" to bar.imagem
+            "horarios" to bar.horarios
         )
             .whereArgs("id = {id}", "id" to bar.id).exec()
 

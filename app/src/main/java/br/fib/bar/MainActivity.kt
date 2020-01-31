@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toast
@@ -45,6 +46,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        lista.onItemLongClickListener = AdapterView.OnItemLongClickListener { adapter, view, posicao, id ->
+            var barSelecionadosId = listaBares?.get(posicao).id
+            BarRepository(this).delete(barSelecionadosId.toInt())
+            onResume()
+            false
+        }
 
     }
 
